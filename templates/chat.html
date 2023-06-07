@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Health Condition Helpdesk</title>
+</head>
+<body style=" background-color: rgb(106, 104, 107); color: #faf0f0;">
+   <div style="text-align: center; margin-top :150px; background-color: rgb(77, 190, 133);max-width: 40%; margin-left: 30%; padding-bottom: 1%;
+     border: solid rgb(187, 151, 151);border-width:20px;   border-radius: 12px;"> 
+    <h1>Health Condition Helpdesk</h1>
+
+    <form method="POST" action="/" >
+        <label for="condition">Health Condition:</label>
+        <select name="condition" id="condition">
+            {% for condition in conditions %}
+            <option value="{{ condition }}">{{ condition }}</option>
+            {% endfor %}
+        </select>
+
+        <br>
+
+        <label for="severity">Severity of Condition:</label>
+        <select name="severity" id="severity">
+            {% for severity in severities %}
+            <option value="{{ severity }}">{{ severity }}</option>
+            {% endfor %}
+        </select>
+
+        <br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    {% if response %}
+    <h2>Response from Helpdesk:</h2>
+    <p>{{ response }}</p>
+{% endif %}</div>
+</body>
+</html>
